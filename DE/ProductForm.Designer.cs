@@ -42,6 +42,7 @@
             buttonLoad = new Button();
             buttonSave = new Button();
             buttonCancel = new Button();
+            openFileDialog1 = new OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)pictureBoxImage).BeginInit();
             SuspendLayout();
             // 
@@ -131,22 +132,25 @@
             // 
             pictureBoxImage.Location = new Point(335, 14);
             pictureBoxImage.Name = "pictureBoxImage";
-            pictureBoxImage.Size = new Size(338, 331);
+            pictureBoxImage.Size = new Size(338, 376);
+            pictureBoxImage.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBoxImage.TabIndex = 10;
             pictureBoxImage.TabStop = false;
             // 
             // buttonLoad
             // 
-            buttonLoad.Location = new Point(335, 367);
+            buttonLoad.Location = new Point(335, 401);
             buttonLoad.Name = "buttonLoad";
-            buttonLoad.Size = new Size(338, 23);
+            buttonLoad.Size = new Size(338, 57);
             buttonLoad.TabIndex = 11;
             buttonLoad.Text = "Загрузить";
             buttonLoad.UseVisualStyleBackColor = true;
+            buttonLoad.Click += buttonLoad_Click;
             // 
             // buttonSave
             // 
-            buttonSave.Location = new Point(335, 435);
+            buttonSave.DialogResult = DialogResult.OK;
+            buttonSave.Location = new Point(335, 480);
             buttonSave.Name = "buttonSave";
             buttonSave.Size = new Size(142, 40);
             buttonSave.TabIndex = 12;
@@ -155,12 +159,17 @@
             // 
             // buttonCancel
             // 
-            buttonCancel.Location = new Point(525, 435);
+            buttonCancel.DialogResult = DialogResult.Cancel;
+            buttonCancel.Location = new Point(525, 480);
             buttonCancel.Name = "buttonCancel";
             buttonCancel.Size = new Size(148, 40);
             buttonCancel.TabIndex = 13;
             buttonCancel.Text = "Отменить";
             buttonCancel.UseVisualStyleBackColor = true;
+            // 
+            // openFileDialog1
+            // 
+            openFileDialog1.FileName = "openFileDialog1";
             // 
             // ProductForm
             // 
@@ -189,20 +198,20 @@
         }
 
         #endregion
-
-        private TextBox textBoxArticul;
-        private TextBox textBoxName;
-        private TextBox textBoxUnit;
-        private TextBox textBoxPrice;
-        private TextBox textBoxSuplier;
-        private TextBox textBoxManufactor;
-        private ComboBox comboBoxCategory;
-        private TextBox textBoxDiscount;
-        private TextBox textBoxQuantity;
-        private TextBox textBoxDescription;
         private PictureBox pictureBoxImage;
         private Button buttonLoad;
         private Button buttonSave;
         private Button buttonCancel;
+        private OpenFileDialog openFileDialog1;
+        public TextBox textBoxArticul;
+        public TextBox textBoxName;
+        public TextBox textBoxUnit;
+        public TextBox textBoxPrice;
+        public TextBox textBoxSuplier;
+        public TextBox textBoxManufactor;
+        public ComboBox comboBoxCategory;
+        public TextBox textBoxDiscount;
+        public TextBox textBoxQuantity;
+        public TextBox textBoxDescription;
     }
 }
