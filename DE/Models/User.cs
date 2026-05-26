@@ -1,8 +1,7 @@
-﻿using DE.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
-namespace DE;
+namespace DE.Models;
 
 public partial class User
 {

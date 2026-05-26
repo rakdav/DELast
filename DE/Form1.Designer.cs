@@ -31,6 +31,7 @@
             textBoxLogin = new TextBox();
             textBoxPassword = new TextBox();
             buttonOk = new Button();
+            linkLabel1 = new LinkLabel();
             SuspendLayout();
             // 
             // textBoxLogin
@@ -60,11 +61,23 @@
             buttonOk.UseVisualStyleBackColor = true;
             buttonOk.Click += buttonOk_Click;
             // 
+            // linkLabel1
+            // 
+            linkLabel1.AutoSize = true;
+            linkLabel1.Location = new Point(150, 183);
+            linkLabel1.Name = "linkLabel1";
+            linkLabel1.Size = new Size(37, 15);
+            linkLabel1.TabIndex = 3;
+            linkLabel1.TabStop = true;
+            linkLabel1.Text = "Гость";
+            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(353, 226);
+            Controls.Add(linkLabel1);
             Controls.Add(buttonOk);
             Controls.Add(textBoxPassword);
             Controls.Add(textBoxLogin);
@@ -79,5 +92,6 @@
         private TextBox textBoxLogin;
         private TextBox textBoxPassword;
         private Button buttonOk;
+        private LinkLabel linkLabel1;
     }
 }

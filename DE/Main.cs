@@ -23,6 +23,7 @@ namespace DE
                 textBoxFilter.Visible= false;
                 button1.Visible=false;
             }
+            if(Form1.User.SurName!="")
             labelUser.Text = Form1.User.SurName + " " + Form1.User.FirstName.Substring(0, 1) + "." + Form1.User.LastName.Substring(0, 1) + ".";
             comboBox1.SelectedIndex = 0;
             comboBox2.SelectedIndex = 0;
