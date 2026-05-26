@@ -18,14 +18,29 @@ namespace DE
             InitializeComponent();
             product=_product;
             main=_main;
-            label1.Text = product.Category + " | " + product.NameTovar;
-            label2.Text = "Описание товара:"+product.Description;
-            label3.Text = "Производитель:"+product.Manufactor;
-            label4.Text = "Поставщик:"+product.Suplier;
-            label5.Text = "Цена:"+product.Price.ToString();
-            label6.Text = "Единица измерения:" + product.Unit;
-            label7.Text="Количество на складе:"+product.Quantity.ToString();
-            label8.Text=product.Discount.ToString()+"%";
+            try
+            {
+                label1.Text = product.Category + " | " + product.NameTovar;
+                label2.Text = "Описание товара:" + product.Description;
+                label3.Text = "Производитель:" + product.Manufactor;
+                label4.Text = "Поставщик:" + product.Suplier;
+                label5.Text = "Цена:" + product.Price.ToString();
+                label6.Text = "Единица измерения:" + product.Unit;
+                label7.Text = "Количество на складе:" + product.Quantity.ToString();
+                label8.Text = product.Discount.ToString() + "%";
+                if (product.Photo != "")
+                {
+                    pictureBox1.Image=Image.FromFile(Environment.CurrentDirectory+ @"\Photo\"+product.Photo);
+                }
+                else
+                {
+                    pictureBox1.Image =Properties.Resources.picture;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
