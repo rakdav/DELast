@@ -31,6 +31,7 @@
             panel1 = new Panel();
             labelUser = new Label();
             button1 = new Button();
+            textBoxFilter = new TextBox();
             SuspendLayout();
             // 
             // panel1
@@ -60,11 +61,20 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
+            // textBoxFilter
+            // 
+            textBoxFilter.Location = new Point(633, 33);
+            textBoxFilter.Name = "textBoxFilter";
+            textBoxFilter.Size = new Size(173, 23);
+            textBoxFilter.TabIndex = 3;
+            textBoxFilter.TextChanged += textBoxFilter_TextChanged;
+            // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(636, 450);
+            ClientSize = new Size(818, 450);
+            Controls.Add(textBoxFilter);
             Controls.Add(button1);
             Controls.Add(labelUser);
             Controls.Add(panel1);
@@ -80,5 +90,6 @@
         private Panel panel1;
         private Label labelUser;
         private Button button1;
+        private TextBox textBoxFilter;
     }
 }

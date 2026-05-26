@@ -38,6 +38,7 @@
             label7 = new Label();
             label8 = new Label();
             pictureBox2 = new PictureBox();
+            label9 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
@@ -137,10 +138,21 @@
             pictureBox2.TabStop = false;
             pictureBox2.Click += pictureBox2_Click;
             // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(307, 81);
+            label9.Name = "label9";
+            label9.Size = new Size(38, 15);
+            label9.TabIndex = 10;
+            label9.Text = "label9";
+            label9.Visible = false;
+            // 
             // TovarControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(label9);
             Controls.Add(pictureBox2);
             Controls.Add(label8);
             Controls.Add(label7);
@@ -172,5 +184,6 @@
         private Label label7;
         private Label label8;
         private PictureBox pictureBox2;
+        private Label label9;
     }
 }

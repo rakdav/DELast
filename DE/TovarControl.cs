@@ -28,6 +28,15 @@ namespace DE
                 label6.Text = "Единица измерения:" + product.Unit;
                 label7.Text = "Количество на складе:" + product.Quantity.ToString();
                 label8.Text = product.Discount.ToString() + "%";
+                if(product.Discount>15) this.BackColor= Color.FromArgb(46, 139, 87);
+                if (product.Discount > 0)
+                {
+                    label5.Font = new Font(new FontFamily("Times New Roman"), 9, FontStyle.Strikeout);
+                    label5.ForeColor = Color.Red;
+                    label9.Visible = true;
+                    decimal price = (decimal)(1 - (product.Discount / 100.0)) * product.Price;
+                    label9.Text = price.ToString("F2");
+                }
                 if (product.Photo != "" && product.Photo != null)
                 {
                     pictureBox1.Image = Image.FromFile(Environment.CurrentDirectory + @"\Photo\" + product.Photo);

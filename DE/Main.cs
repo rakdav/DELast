@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace DE
 {
@@ -83,6 +84,28 @@ namespace DE
         private void Main_FormClosed(object sender, FormClosedEventArgs e)
         {
             Form1.Instance.Show();
+        }
+
+        private void textBoxFilter_TextChanged(object sender, EventArgs e)
+        {
+            using (De17BdContext db = new De17BdContext())
+            {
+                if (textBoxFilter.Text.Length > 0)
+                {
+
+                    list = db.Products.Where(p => p.NameTovar.StartsWith(textBoxFilter.Text) || p.Articul.StartsWith(textBoxFilter.Text) ||
+                                        p.Unit.StartsWith(textBoxFilter.Text) ||
+                                        p.Suplier.StartsWith(textBoxFilter.Text) ||
+                                        p.Manufactor.StartsWith(textBoxFilter.Text) ||
+                                        p.Category.StartsWith(textBoxFilter.Text)).ToList();
+                    updateForm(list);
+                }
+                else
+                {
+                    list=db.Products.ToList(); 
+                    updateForm(list);
+                }
+            }
         }
     }
 }
