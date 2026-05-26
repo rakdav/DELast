@@ -16,7 +16,16 @@ namespace DE
         public Main()
         {
             InitializeComponent();
+            if(Form1.User.Role== "Авторизированный клиент")
+            {
+                comboBox1.Visible= false;
+                comboBox2.Visible= false;
+                textBoxFilter.Visible= false;
+                button1.Visible=false;
+            }
             labelUser.Text = Form1.User.SurName + " " + Form1.User.FirstName.Substring(0, 1) + "." + Form1.User.LastName.Substring(0, 1) + ".";
+            comboBox1.SelectedIndex = 0;
+            comboBox2.SelectedIndex = 0;
             using (De17BdContext db = new De17BdContext())
             {
                 list = db.Products.ToList();
@@ -102,9 +111,38 @@ namespace DE
                 }
                 else
                 {
-                    list=db.Products.ToList(); 
+                    list = db.Products.ToList();
                     updateForm(list);
                 }
+            }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            using (De17BdContext db = new De17BdContext()) {
+                if (comboBox2.SelectedIndex == 0)
+                {
+                    switch (comboBox1.SelectedIndex)
+                    {
+                        case 1: list = db.Products.OrderBy(p => p.Articul).ToList(); break;
+                        case 2: list = db.Products.OrderBy(p => p.NameTovar).ToList(); break;
+                        case 3: list = db.Products.OrderBy(p => p.Unit).ToList(); break;
+                        case 4: list = db.Products.OrderBy(p => p.Price).ToList(); break;
+                        case 0: list = db.Products.ToList(); break;
+                    }
+                }
+                else
+                {
+                    switch (comboBox1.SelectedIndex)
+                    {
+                        case 1: list = db.Products.OrderByDescending(p => p.Articul).ToList(); break;
+                        case 2: list = db.Products.OrderByDescending(p => p.NameTovar).ToList(); break;
+                        case 3: list = db.Products.OrderByDescending(p => p.Unit).ToList(); break;
+                        case 4: list = db.Products.OrderByDescending(p => p.Price).ToList(); break;
+                        case 0: list = db.Products.ToList(); break;
+                    }
+                }
+                updateForm(list);
             }
         }
     }

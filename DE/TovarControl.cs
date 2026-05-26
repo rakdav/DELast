@@ -18,6 +18,10 @@ namespace DE
             InitializeComponent();
             product = _product;
             main = _main;
+            if(Form1.User.Role== "Авторизированный клиент")
+            {
+                pictureBox2.Visible=false;
+            }
             try
             {
                 label1.Text = product.Category + " | " + product.NameTovar;

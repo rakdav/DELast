@@ -32,6 +32,8 @@
             labelUser = new Label();
             button1 = new Button();
             textBoxFilter = new TextBox();
+            comboBox1 = new ComboBox();
+            comboBox2 = new ComboBox();
             SuspendLayout();
             // 
             // panel1
@@ -69,11 +71,32 @@
             textBoxFilter.TabIndex = 3;
             textBoxFilter.TextChanged += textBoxFilter_TextChanged;
             // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Items.AddRange(new object[] { "Выберите поле фильтрации", "Артикул", "Название", "Единица измерения", "Цена", "Поставщик", "Категория", "Производитель", "Скидка", "Количество" });
+            comboBox1.Location = new Point(633, 80);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(173, 23);
+            comboBox1.TabIndex = 4;
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            // 
+            // comboBox2
+            // 
+            comboBox2.FormattingEnabled = true;
+            comboBox2.Items.AddRange(new object[] { "Возр", "Убыв" });
+            comboBox2.Location = new Point(633, 132);
+            comboBox2.Name = "comboBox2";
+            comboBox2.Size = new Size(173, 23);
+            comboBox2.TabIndex = 5;
+            // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(818, 450);
+            Controls.Add(comboBox2);
+            Controls.Add(comboBox1);
             Controls.Add(textBoxFilter);
             Controls.Add(button1);
             Controls.Add(labelUser);
@@ -91,5 +114,7 @@
         private Label labelUser;
         private Button button1;
         private TextBox textBoxFilter;
+        private ComboBox comboBox1;
+        private ComboBox comboBox2;
     }
 }
