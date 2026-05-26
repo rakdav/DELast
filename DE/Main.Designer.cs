@@ -70,6 +70,7 @@
             Controls.Add(panel1);
             Name = "Main";
             Text = "Главная";
+            FormClosed += Main_FormClosed;
             ResumeLayout(false);
             PerformLayout();
         }

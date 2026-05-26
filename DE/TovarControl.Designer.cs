@@ -37,7 +37,9 @@
             label6 = new Label();
             label7 = new Label();
             label8 = new Label();
+            pictureBox2 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
@@ -124,10 +126,22 @@
             label8.Text = "label8";
             label8.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = Properties.Resources.Delete;
+            pictureBox2.Location = new Point(448, 60);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(35, 34);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 9;
+            pictureBox2.TabStop = false;
+            pictureBox2.Click += pictureBox2_Click;
+            // 
             // TovarControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(pictureBox2);
             Controls.Add(label8);
             Controls.Add(label7);
             Controls.Add(label6);
@@ -139,7 +153,9 @@
             Controls.Add(pictureBox1);
             Name = "TovarControl";
             Size = new Size(598, 150);
+            DoubleClick += TovarControl_DoubleClick;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -155,5 +171,6 @@
         private Label label6;
         private Label label7;
         private Label label8;
+        private PictureBox pictureBox2;
     }
 }

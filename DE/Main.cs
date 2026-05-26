@@ -38,39 +38,51 @@ namespace DE
         private void button1_Click(object sender, EventArgs e)
         {
             ProductForm form = new ProductForm(new Product());
-            if(form.ShowDialog() == DialogResult.OK)
+            if (form.ShowDialog() == DialogResult.OK)
             {
-                Product product=new Product();
-                product.Articul=form.textBoxArticul.Text;
-                product.NameTovar=form.textBoxName.Text;
-                product.Unit=form.textBoxUnit.Text;
-                product.Price=decimal.Parse(form.textBoxPrice.Text);
-                product.Suplier=form.textBoxSuplier.Text;
-                product.Manufactor=form.textBoxManufactor.Text;
+                Product product = new Product();
+                product.Articul = form.textBoxArticul.Text;
+                product.NameTovar = form.textBoxName.Text;
+                product.Unit = form.textBoxUnit.Text;
+                product.Price = decimal.Parse(form.textBoxPrice.Text);
+                product.Suplier = form.textBoxSuplier.Text;
+                product.Manufactor = form.textBoxManufactor.Text;
                 if (form.comboBoxCategory.SelectedIndex != 0)
                 {
                     product.Category = form.comboBoxCategory.Text;
                 }
                 else
                 {
-                    product.Category = form.comboBoxCategory.Items[1]!.ToString()!;
+                    product.Category = "Женская обувь";
                 }
-                product.Discount=int.Parse(form.textBoxDiscount.Text);
+                product.Discount = int.Parse(form.textBoxDiscount.Text);
                 product.Quantity = int.Parse(form.textBoxPrice.Text);
-                product.Description= form.textBoxDescription.Text;
+                product.Description = form.textBoxDescription.Text;
                 if (form.FilePath != null)
                 {
-                    FileInfo file=new FileInfo(form.FilePath);
+                    FileInfo file = new FileInfo(form.FilePath);
                     file.CopyTo(Environment.CurrentDirectory + @"\Photo\" + form.FileName, true);
                     product.Photo = form.FileName;
                 }
-                using (De17BdContext db=new De17BdContext())
+                using (De17BdContext db = new De17BdContext())
                 {
-                    db.Products.Add(product);
-                    db.SaveChanges();
-                    updateForm(db.Products.ToList());
+                    try
+                    {
+                        db.Products.Add(product);
+                        db.SaveChanges();
+                        updateForm(db.Products.ToList());
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
                 }
             }
+        }
+
+        private void Main_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Form1.Instance.Show();
         }
     }
 }
